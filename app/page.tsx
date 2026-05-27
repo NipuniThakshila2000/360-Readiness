@@ -112,6 +112,31 @@ const mapRouteDots = [
   [78, 66]
 ];
 
+const heatPatches = [
+  { x: 18, y: 14, w: 56, h: 28, level: "high", rotate: -14 },
+  { x: 27, y: 12, w: 48, h: 25, level: "critical", rotate: 8 },
+  { x: 77, y: 9, w: 72, h: 28, level: "high", rotate: -8 },
+  { x: 19, y: 29, w: 44, h: 29, level: "critical", rotate: 18 },
+  { x: 31, y: 47, w: 68, h: 34, level: "high", rotate: 18 },
+  { x: 38, y: 53, w: 74, h: 38, level: "critical", rotate: -8 },
+  { x: 48, y: 37, w: 50, h: 25, level: "moderate", rotate: 20 },
+  { x: 56, y: 54, w: 78, h: 39, level: "critical", rotate: 7 },
+  { x: 61, y: 47, w: 64, h: 30, level: "high", rotate: -17 },
+  { x: 70, y: 24, w: 54, h: 26, level: "moderate", rotate: -18 },
+  { x: 74, y: 65, w: 90, h: 43, level: "critical", rotate: -10 },
+  { x: 82, y: 71, w: 88, h: 40, level: "high", rotate: 12 },
+  { x: 31, y: 82, w: 72, h: 32, level: "moderate", rotate: 12 },
+  { x: 50, y: 84, w: 64, h: 31, level: "high", rotate: -24 },
+  { x: 86, y: 49, w: 66, h: 34, level: "critical", rotate: 16 },
+  { x: 15, y: 70, w: 82, h: 39, level: "critical", rotate: -5 },
+  { x: 21, y: 61, w: 54, h: 30, level: "high", rotate: 11 },
+  { x: 64, y: 82, w: 80, h: 36, level: "high", rotate: 21 },
+  { x: 8, y: 52, w: 46, h: 26, level: "moderate", rotate: -21 },
+  { x: 91, y: 55, w: 54, h: 30, level: "high", rotate: 8 },
+  { x: 68, y: 59, w: 58, h: 32, level: "moderate", rotate: -12 },
+  { x: 44, y: 67, w: 50, h: 26, level: "high", rotate: 29 }
+];
+
 const alertFeed = [
   ["Zone 3", "Cognitive strain rising across two squads", "watch"],
   ["Charlie Team", "Readiness dropped 11 points in 72h", "degraded"],
@@ -447,6 +472,66 @@ function MapPanel({ selectedId, onSelect }: { selectedId: string; onSelect: (id:
           <div className="terrain-shade ridge-a" />
           <div className="terrain-shade ridge-b" />
           <div className="terrain-shade basin" />
+          <svg className="satellite-layer" viewBox="0 0 1000 720" preserveAspectRatio="none" aria-hidden="true">
+            <filter id="mapNoise">
+              <feTurbulence type="fractalNoise" baseFrequency="0.018 0.045" numOctaves="4" seed="8" />
+              <feColorMatrix type="saturate" values="0.55" />
+              <feBlend mode="multiply" in2="SourceGraphic" />
+            </filter>
+            <g filter="url(#mapNoise)">
+              <path className="sat-rock" d="M0 0H1000V720H0Z" />
+              <path className="sat-sand" d="M150 0 C235 110 230 220 190 330 C142 462 198 582 265 720 L0 720 L0 0Z" />
+              <path className="sat-ridge" d="M386 0 C470 92 515 202 492 315 C470 424 518 528 610 720 L1000 720 L1000 0Z" />
+              <path className="sat-valley" d="M322 395 C400 360 492 382 560 442 C625 500 616 580 545 626 C480 670 374 642 312 585 C250 528 250 430 322 395Z" />
+              <path className="sat-green" d="M0 235 C148 238 243 274 362 304 C532 346 706 305 1000 340 L1000 720 L0 720Z" />
+              <path className="sat-green alt" d="M0 0H96 C132 155 114 280 86 405 C62 514 82 618 125 720 H0Z" />
+            </g>
+          </svg>
+          <svg className="coverage-layer" viewBox="0 0 1000 720" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M18 86 C176 118 286 82 410 136 C540 194 668 190 968 152 L1000 720 L0 720 Z" />
+            <path d="M0 360 C155 314 278 364 426 332 C570 302 738 322 1000 282 L1000 720 L0 720 Z" />
+          </svg>
+          <svg className="map-network" viewBox="0 0 1000 720" preserveAspectRatio="none" aria-hidden="true">
+            <g className="network-fill">
+              <path d="M0 90 C130 150 250 130 380 190 C520 255 660 205 1000 280 L1000 720 L0 720 Z" />
+              <path d="M0 485 C185 430 325 485 500 425 C680 365 815 402 1000 350 L1000 720 L0 720 Z" />
+            </g>
+            <g className="network-lines">
+              <path d="M65 0 C120 122 140 242 116 383 C98 495 132 600 210 720" />
+              <path d="M242 0 C300 115 337 204 326 323 C315 452 365 596 430 720" />
+              <path d="M505 0 C475 132 508 236 590 340 C674 448 692 560 650 720" />
+              <path d="M780 0 C720 130 718 245 785 372 C840 478 860 592 850 720" />
+              <path d="M0 175 C160 153 292 188 430 162 C595 130 746 160 1000 108" />
+              <path d="M0 312 C118 286 218 312 333 358 C471 414 630 380 1000 426" />
+              <path d="M0 530 C148 500 288 518 424 480 C596 432 762 485 1000 532" />
+              <path d="M112 384 C242 318 358 304 485 230 C625 150 762 180 940 68" />
+              <path d="M210 720 C286 602 380 535 510 510 C680 477 768 352 920 262" />
+              <path d="M30 632 C190 598 292 612 420 655 C555 700 690 650 988 688" />
+            </g>
+            <g className="network-nodes">
+              <circle cx="145" cy="365" r="11" />
+              <circle cx="332" cy="356" r="10" />
+              <circle cx="510" cy="512" r="11" />
+              <circle cx="650" cy="385" r="10" />
+              <circle cx="788" cy="530" r="11" />
+              <circle cx="850" cy="196" r="10" />
+            </g>
+          </svg>
+          <div className="heat-layer" aria-hidden="true">
+            {heatPatches.map((patch, index) => (
+              <span
+                key={index}
+                className={`heat-patch ${patch.level}`}
+                style={{
+                  left: `${patch.x}%`,
+                  top: `${patch.y}%`,
+                  width: patch.w,
+                  height: patch.h,
+                  transform: `translate(-50%, -50%) rotate(${patch.rotate}deg)`
+                }}
+              />
+            ))}
+          </div>
           <div className="range-ring outer" />
           <div className="range-ring inner" />
           <div className="threat-zone" />

@@ -486,11 +486,11 @@ button {
   min-height: 720px;
   overflow: hidden;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.09), transparent 17%),
-    radial-gradient(ellipse at 74% 24%, rgba(130, 89, 69, 0.7), transparent 28rem),
-    radial-gradient(ellipse at 34% 63%, rgba(186, 167, 125, 0.42), transparent 22rem),
-    radial-gradient(ellipse at 17% 32%, rgba(72, 93, 79, 0.48), transparent 18rem),
-    linear-gradient(155deg, #6b6b57 0%, #9b896f 28%, #6d6f5e 46%, #b6a17a 68%, #574f43 100%);
+    radial-gradient(ellipse at 18% 10%, rgba(225, 216, 185, 0.48), transparent 13rem),
+    radial-gradient(ellipse at 68% 18%, rgba(139, 95, 71, 0.54), transparent 18rem),
+    radial-gradient(ellipse at 39% 56%, rgba(218, 207, 172, 0.5), transparent 17rem),
+    radial-gradient(ellipse at 83% 68%, rgba(85, 117, 78, 0.5), transparent 17rem),
+    linear-gradient(145deg, #606657 0%, #91886f 24%, #737664 44%, #aa9b75 61%, #64705c 79%, #50493d 100%);
   isolation: isolate;
 }
 
@@ -504,21 +504,21 @@ button {
 
 .map-panel::before {
   z-index: 0;
-  opacity: 0.42;
+  opacity: 0.68;
   background:
-    repeating-linear-gradient(28deg, transparent 0 18px, rgba(56, 45, 35, 0.16) 19px 21px, transparent 22px 46px),
-    repeating-linear-gradient(112deg, transparent 0 28px, rgba(236, 218, 176, 0.12) 30px 32px, transparent 34px 68px),
-    linear-gradient(rgba(8, 13, 19, 0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(8, 13, 19, 0.13) 1px, transparent 1px);
-  background-size: auto, auto, 36px 36px, 36px 36px;
-  mix-blend-mode: multiply;
+    repeating-linear-gradient(21deg, transparent 0 9px, rgba(52, 44, 35, 0.18) 10px 11px, transparent 12px 25px),
+    repeating-linear-gradient(103deg, transparent 0 16px, rgba(238, 221, 172, 0.13) 18px 19px, transparent 20px 39px),
+    repeating-radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.09) 0 1px, transparent 1px 9px);
+  background-size: auto, auto, 28px 28px;
+  mix-blend-mode: overlay;
 }
 
 .map-panel::after {
   z-index: 1;
   background:
-    radial-gradient(circle at 50% 50%, transparent 48%, rgba(4, 7, 10, 0.22) 100%),
-    linear-gradient(rgba(7, 11, 16, 0.12), rgba(7, 11, 16, 0.24));
+    linear-gradient(rgba(68, 122, 65, 0.16), rgba(68, 122, 65, 0.16)),
+    radial-gradient(circle at 50% 50%, transparent 54%, rgba(4, 7, 10, 0.2) 100%),
+    linear-gradient(rgba(7, 11, 16, 0.06), rgba(7, 11, 16, 0.16));
 }
 
 .map-stage {
@@ -544,6 +544,56 @@ button {
   pointer-events: none;
   filter: blur(1px);
   mix-blend-mode: multiply;
+}
+
+.satellite-layer,
+.coverage-layer,
+.map-network {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.satellite-layer {
+  opacity: 0.92;
+  mix-blend-mode: multiply;
+}
+
+.sat-rock {
+  fill: #8c806a;
+}
+
+.sat-sand {
+  fill: rgba(188, 174, 139, 0.86);
+}
+
+.sat-ridge {
+  fill: rgba(92, 83, 67, 0.72);
+}
+
+.sat-valley {
+  fill: rgba(221, 213, 173, 0.74);
+}
+
+.sat-green {
+  fill: rgba(83, 122, 73, 0.64);
+}
+
+.sat-green.alt {
+  fill: rgba(75, 107, 76, 0.66);
+}
+
+.coverage-layer {
+  opacity: 0.7;
+  mix-blend-mode: soft-light;
+}
+
+.coverage-layer path {
+  fill: rgba(73, 178, 67, 0.46);
+  stroke: rgba(130, 222, 81, 0.34);
+  stroke-width: 2;
 }
 
 .ridge-a {
@@ -573,6 +623,60 @@ button {
   clip-path: polygon(20% 0, 78% 18%, 100% 64%, 54% 100%, 0 72%);
 }
 
+.network-fill path {
+  fill: rgba(81, 157, 67, 0.12);
+}
+
+.network-lines path {
+  fill: none;
+  stroke: rgba(103, 190, 50, 0.74);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 1px rgba(18, 77, 19, 0.7));
+}
+
+.network-lines path:nth-child(even) {
+  stroke-width: 1.4;
+  stroke: rgba(139, 218, 70, 0.58);
+}
+
+.network-nodes circle {
+  fill: rgba(44, 183, 156, 0.82);
+  stroke: rgba(220, 255, 238, 0.78);
+  stroke-width: 2;
+  filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.6));
+}
+
+.heat-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.heat-patch {
+  position: absolute;
+  border-radius: 42% 58% 44% 62%;
+  opacity: 0.82;
+  background:
+    radial-gradient(ellipse at 48% 46%, rgba(255, 41, 38, 0.98) 0 18%, rgba(219, 58, 48, 0.86) 21% 35%, rgba(246, 190, 58, 0.72) 39% 52%, rgba(118, 194, 64, 0.18) 58%, transparent 72%);
+  mix-blend-mode: hard-light;
+  clip-path: polygon(7% 35%, 18% 12%, 43% 15%, 58% 3%, 84% 16%, 94% 40%, 78% 58%, 90% 80%, 59% 94%, 36% 78%, 14% 89%, 2% 62%);
+  filter: saturate(1.35) contrast(1.18);
+}
+
+.heat-patch.moderate {
+  opacity: 0.56;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(244, 189, 79, 0.85) 0 28%, rgba(230, 84, 62, 0.62) 31% 48%, rgba(120, 198, 64, 0.13) 56%, transparent 74%);
+}
+
+.heat-patch.critical {
+  opacity: 0.86;
+  background:
+    radial-gradient(ellipse at 45% 48%, rgba(255, 48, 56, 0.98) 0 25%, rgba(202, 52, 46, 0.8) 28% 44%, rgba(246, 179, 53, 0.7) 47% 58%, rgba(115, 192, 67, 0.12) 62%, transparent 74%);
+}
+
 .range-ring,
 .threat-zone,
 .boundary-line,
@@ -584,7 +688,7 @@ button {
 }
 
 .range-ring {
-  border: 1px solid rgba(215, 73, 70, 0.55);
+  border: 1px solid rgba(220, 67, 65, 0.42);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -609,7 +713,7 @@ button {
   width: 45%;
   height: 45%;
   border: 1px solid rgba(231, 78, 74, 0.42);
-  background: rgba(219, 91, 79, 0.22);
+  background: rgba(219, 91, 79, 0.1);
   border-radius: 50%;
   pointer-events: none;
 }
@@ -629,7 +733,7 @@ button {
   top: 38%;
   width: 48%;
   height: 28%;
-  border-top: 3px dotted rgba(238, 238, 221, 0.72);
+  border-top: 3px dotted rgba(246, 244, 222, 0.82);
   border-radius: 50%;
   transform: rotate(22deg);
 }
