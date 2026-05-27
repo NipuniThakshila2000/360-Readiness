@@ -486,11 +486,11 @@ button {
   min-height: 720px;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 18% 10%, rgba(225, 216, 185, 0.48), transparent 13rem),
-    radial-gradient(ellipse at 68% 18%, rgba(139, 95, 71, 0.54), transparent 18rem),
-    radial-gradient(ellipse at 39% 56%, rgba(218, 207, 172, 0.5), transparent 17rem),
-    radial-gradient(ellipse at 83% 68%, rgba(85, 117, 78, 0.5), transparent 17rem),
-    linear-gradient(145deg, #606657 0%, #91886f 24%, #737664 44%, #aa9b75 61%, #64705c 79%, #50493d 100%);
+    radial-gradient(ellipse at 12% 18%, rgba(177, 166, 137, 0.46), transparent 15rem),
+    radial-gradient(ellipse at 70% 16%, rgba(118, 92, 75, 0.4), transparent 19rem),
+    radial-gradient(ellipse at 36% 58%, rgba(200, 190, 158, 0.44), transparent 18rem),
+    radial-gradient(ellipse at 83% 70%, rgba(82, 105, 76, 0.42), transparent 18rem),
+    linear-gradient(145deg, #716d5b 0%, #94866b 23%, #6d715f 43%, #a69672 61%, #66745f 79%, #565141 100%);
   isolation: isolate;
 }
 
@@ -504,21 +504,21 @@ button {
 
 .map-panel::before {
   z-index: 0;
-  opacity: 0.68;
+  opacity: 0.74;
   background:
-    repeating-linear-gradient(21deg, transparent 0 9px, rgba(52, 44, 35, 0.18) 10px 11px, transparent 12px 25px),
-    repeating-linear-gradient(103deg, transparent 0 16px, rgba(238, 221, 172, 0.13) 18px 19px, transparent 20px 39px),
-    repeating-radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.09) 0 1px, transparent 1px 9px);
-  background-size: auto, auto, 28px 28px;
-  mix-blend-mode: overlay;
+    repeating-linear-gradient(18deg, transparent 0 7px, rgba(38, 34, 29, 0.12) 8px 9px, transparent 10px 24px),
+    repeating-linear-gradient(99deg, transparent 0 14px, rgba(223, 207, 170, 0.09) 16px 17px, transparent 18px 38px),
+    repeating-radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 7px);
+  background-size: auto, auto, 24px 24px;
+  mix-blend-mode: multiply;
 }
 
 .map-panel::after {
   z-index: 1;
   background:
-    linear-gradient(rgba(68, 122, 65, 0.16), rgba(68, 122, 65, 0.16)),
-    radial-gradient(circle at 50% 50%, transparent 54%, rgba(4, 7, 10, 0.2) 100%),
-    linear-gradient(rgba(7, 11, 16, 0.06), rgba(7, 11, 16, 0.16));
+    linear-gradient(rgba(77, 122, 67, 0.08), rgba(77, 122, 67, 0.08)),
+    radial-gradient(circle at 50% 50%, transparent 58%, rgba(4, 7, 10, 0.15) 100%),
+    linear-gradient(rgba(7, 11, 16, 0.03), rgba(7, 11, 16, 0.1));
 }
 
 .map-stage {
@@ -557,7 +557,7 @@ button {
 }
 
 .satellite-layer {
-  opacity: 0.92;
+  opacity: 0.96;
   mix-blend-mode: multiply;
 }
 
@@ -586,13 +586,13 @@ button {
 }
 
 .coverage-layer {
-  opacity: 0.7;
-  mix-blend-mode: soft-light;
+  opacity: 0.55;
+  mix-blend-mode: multiply;
 }
 
 .coverage-layer path {
-  fill: rgba(73, 178, 67, 0.46);
-  stroke: rgba(130, 222, 81, 0.34);
+  fill: rgba(73, 151, 65, 0.32);
+  stroke: rgba(130, 205, 81, 0.24);
   stroke-width: 2;
 }
 
@@ -624,21 +624,21 @@ button {
 }
 
 .network-fill path {
-  fill: rgba(81, 157, 67, 0.12);
+  fill: rgba(81, 157, 67, 0.08);
 }
 
 .network-lines path {
   fill: none;
-  stroke: rgba(103, 190, 50, 0.74);
-  stroke-width: 2.5;
+  stroke: rgba(94, 176, 48, 0.62);
+  stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
   filter: drop-shadow(0 0 1px rgba(18, 77, 19, 0.7));
 }
 
 .network-lines path:nth-child(even) {
-  stroke-width: 1.4;
-  stroke: rgba(139, 218, 70, 0.58);
+  stroke-width: 1.2;
+  stroke: rgba(126, 199, 63, 0.5);
 }
 
 .network-nodes circle {
@@ -657,22 +657,22 @@ button {
 .heat-patch {
   position: absolute;
   border-radius: 42% 58% 44% 62%;
-  opacity: 0.82;
+  opacity: 0.58;
   background:
     radial-gradient(ellipse at 48% 46%, rgba(255, 41, 38, 0.98) 0 18%, rgba(219, 58, 48, 0.86) 21% 35%, rgba(246, 190, 58, 0.72) 39% 52%, rgba(118, 194, 64, 0.18) 58%, transparent 72%);
-  mix-blend-mode: hard-light;
+  mix-blend-mode: multiply;
   clip-path: polygon(7% 35%, 18% 12%, 43% 15%, 58% 3%, 84% 16%, 94% 40%, 78% 58%, 90% 80%, 59% 94%, 36% 78%, 14% 89%, 2% 62%);
-  filter: saturate(1.35) contrast(1.18);
+  filter: saturate(1.1) contrast(1.05);
 }
 
 .heat-patch.moderate {
-  opacity: 0.56;
+  opacity: 0.42;
   background:
     radial-gradient(ellipse at 50% 50%, rgba(244, 189, 79, 0.85) 0 28%, rgba(230, 84, 62, 0.62) 31% 48%, rgba(120, 198, 64, 0.13) 56%, transparent 74%);
 }
 
 .heat-patch.critical {
-  opacity: 0.86;
+  opacity: 0.66;
   background:
     radial-gradient(ellipse at 45% 48%, rgba(255, 48, 56, 0.98) 0 25%, rgba(202, 52, 46, 0.8) 28% 44%, rgba(246, 179, 53, 0.7) 47% 58%, rgba(115, 192, 67, 0.12) 62%, transparent 74%);
 }
@@ -748,12 +748,16 @@ button {
 
 .sector-label {
   transform: translate(-50%, -50%);
-  color: rgba(241, 239, 221, 0.86);
-  font-size: 10px;
-  font-weight: 700;
+  color: rgba(245, 247, 237, 0.94);
+  font-size: 11px;
+  font-weight: 500;
   line-height: 1.15;
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.95),
+    0 -1px 2px rgba(0, 0, 0, 0.75),
+    1px 0 2px rgba(0, 0, 0, 0.75),
+    -1px 0 2px rgba(0, 0, 0, 0.75);
 }
 
 .facility {
@@ -761,12 +765,16 @@ button {
   display: grid;
   justify-items: center;
   gap: 5px;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(252, 253, 245, 0.96);
   font-size: 10px;
-  font-weight: 800;
+  font-weight: 500;
   line-height: 1.05;
   text-align: center;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.92);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.96),
+    0 -1px 2px rgba(0, 0, 0, 0.8),
+    1px 0 2px rgba(0, 0, 0, 0.8),
+    -1px 0 2px rgba(0, 0, 0, 0.8);
   max-width: 84px;
 }
 
@@ -780,7 +788,7 @@ button {
   height: 17px;
   transform: rotate(45deg);
   border: 1px solid rgba(255, 255, 255, 0.62);
-  box-shadow: 0 0 0 2px rgba(44, 27, 24, 0.35);
+  box-shadow: 0 0 0 2px rgba(44, 27, 24, 0.32), 0 2px 7px rgba(0, 0, 0, 0.35);
 }
 
 .facility.ready span { background: #5ee185; }
@@ -800,9 +808,9 @@ button {
 }
 
 .mission-zone span {
-  color: rgba(255, 255, 255, 0.84);
+  color: rgba(252, 253, 245, 0.92);
   font-size: 10px;
-  font-weight: 800;
+  font-weight: 500;
   text-transform: uppercase;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
 }
@@ -828,7 +836,7 @@ button {
   display: grid;
   place-items: center;
   color: #f7fbff;
-  font-weight: 800;
+  font-weight: 600;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
   transition: 150ms ease;
   border: 0;
@@ -861,6 +869,7 @@ button {
   height: 24px;
   display: grid;
   place-items: center;
+  font-weight: 600;
   border: 1px solid rgba(255, 255, 255, 0.72);
   box-shadow: 0 0 0 2px rgba(13, 19, 22, 0.45), 0 8px 18px rgba(0, 0, 0, 0.35);
 }
@@ -868,6 +877,13 @@ button {
 .marker.unit strong {
   max-width: 72px;
   text-align: left;
+  font-weight: 500;
+  color: rgba(252, 253, 245, 0.96);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.96),
+    0 -1px 2px rgba(0, 0, 0, 0.76),
+    1px 0 2px rgba(0, 0, 0, 0.76),
+    -1px 0 2px rgba(0, 0, 0, 0.76);
 }
 
 .marker.unit.friendly > span,
