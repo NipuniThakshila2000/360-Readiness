@@ -834,7 +834,7 @@ export default function Home() {
         <div className="content">
           <div className="view-switch" role="tablist" aria-label="Readiness workspaces">
             <button className={`switch-button ${view === "individual" ? "active" : ""}`} onClick={() => setView("individual")}>My Readiness</button>
-            <button className={`switch-button ${view === "command" ? "active" : ""}`} onClick={() => setView("command")}>CIQ Readiness</button>
+            <button className={`switch-button ${view === "command" ? "active" : ""}`} onClick={() => setView("command")}>Command Readiness</button>
           </div>
           {activeView}
         </div>
