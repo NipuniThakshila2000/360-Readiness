@@ -770,13 +770,15 @@ function LeftNav({ view, setView }: { view: ViewMode; setView: (view: ViewMode) 
   ] as const;
   return (
     <nav className="left-nav" aria-label="Primary navigation">
-      <div className="brand-mark">CIQ</div>
+      <div className="brand-mark" aria-label="CIQ logo">
+        <img src="/ciq-logo.png" alt="CIQ" />
+      </div>
       {items.map(([id, icon, label]) => (
         <button
           key={id}
           className={`nav-button ${id === view ? "active" : ""}`}
           onClick={() => setView(id)}
-          title={id === "individual" ? "My Readiness" : id === "command" ? "Command Readiness" : label}
+          title={id === "individual" ? "My Readiness" : id === "command" ? "CIQ Readiness" : label}
         >
           <span>{icon}</span>
           <span>{label}</span>
@@ -789,7 +791,7 @@ function LeftNav({ view, setView }: { view: ViewMode; setView: (view: ViewMode) 
 function TopStatusBar({ view }: { view: ViewMode }) {
   const titles: Record<ViewMode, [string, string]> = {
     individual: ["My Readiness 360", "Private cognitive readiness view"],
-    command: ["Command Readiness 360", "Aggregate operational readiness picture"],
+    command: ["CIQ Readiness", "Aggregate operational readiness picture"],
     assessment: ["Assessment Workspace", "Assessment and response analysis"],
     trends: ["Readiness Trends", "Longitudinal readiness and strain patterns"],
     reports: ["Readiness Reports", "Command reporting workspace"],
@@ -832,7 +834,7 @@ export default function Home() {
         <div className="content">
           <div className="view-switch" role="tablist" aria-label="Readiness workspaces">
             <button className={`switch-button ${view === "individual" ? "active" : ""}`} onClick={() => setView("individual")}>My Readiness</button>
-            <button className={`switch-button ${view === "command" ? "active" : ""}`} onClick={() => setView("command")}>Command Readiness</button>
+            <button className={`switch-button ${view === "command" ? "active" : ""}`} onClick={() => setView("command")}>CIQ Readiness</button>
           </div>
           {activeView}
         </div>

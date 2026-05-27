@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Cognitive Readiness 360",
+  title: "CIQ Readiness",
   description: "Command-center prototype for cognitive readiness intelligence"
 };
 

@@ -87,16 +87,20 @@ button {
 }
 
 .brand-mark {
-  width: 42px;
-  height: 42px;
+  width: 54px;
+  height: 54px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(77, 163, 255, 0.4);
-  border-radius: 8px;
-  background: linear-gradient(145deg, rgba(77, 163, 255, 0.2), rgba(54, 214, 208, 0.08));
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.brand-mark img {
+  width: 48px;
+  height: 48px;
+  display: block;
+  object-fit: contain;
 }
 
 .nav-button {
