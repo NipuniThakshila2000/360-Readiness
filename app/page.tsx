@@ -194,7 +194,7 @@ function AIChatPanel({ command = false }: { command?: boolean }) {
         </div>
         <div className="prompt-row">
           {prompts.map((prompt) => (
-            <button key={prompt}>{prompt}</button>
+            <button key={prompt} title={prompt}>{prompt}</button>
           ))}
         </div>
       </div>
@@ -287,7 +287,7 @@ function FilterToolbar() {
         ["Echelon", "Platoon+"],
         ["Readiness", "Watch + degraded"]
       ].map(([label, value]) => (
-        <div className="filter" key={label}>
+        <div className="filter" key={label} title={`${label}: ${value}`}>
           <label>{label}</label>
           <strong>{value}</strong>
         </div>
@@ -313,7 +313,7 @@ function DataTable({ onSelect, selectedId }: { onSelect: (id: string) => void; s
         </thead>
         <tbody>
           {unitReadinessTable.map((unit) => (
-            <tr key={unit.id} onClick={() => onSelect(unit.id)} style={{ outline: selectedId === unit.id ? "1px solid rgba(77,163,255,.35)" : undefined }}>
+            <tr key={unit.id} onClick={() => onSelect(unit.id)} title={`Open ${unit.unitName} readiness profile`} style={{ outline: selectedId === unit.id ? "1px solid rgba(77,163,255,.35)" : undefined }}>
               <td>{unit.unitName}</td>
               <td>{unit.personnelCount}</td>
               <td>{unit.readinessScore}</td>
@@ -332,10 +332,10 @@ function DataTable({ onSelect, selectedId }: { onSelect: (id: string) => void; s
 function MapLegend() {
   return (
     <div className="map-legend">
-      <div className="legend-item"><span className="dot" style={{ background: stateColor.ready }} /> Ready / stable</div>
-      <div className="legend-item"><span className="dot" style={{ background: stateColor.watch }} /> Watch / rising strain</div>
-      <div className="legend-item"><span className="dot" style={{ background: stateColor.degraded }} /> Degraded / high risk</div>
-      <div className="legend-item"><span className="dot" style={{ background: "var(--blue)" }} /> Selected object</div>
+      <div className="legend-item" title="Stable readiness state"><span className="dot" style={{ background: stateColor.ready }} /> Ready / stable</div>
+      <div className="legend-item" title="Rising strain or caution state"><span className="dot" style={{ background: stateColor.watch }} /> Watch / rising strain</div>
+      <div className="legend-item" title="High-risk readiness state"><span className="dot" style={{ background: stateColor.degraded }} /> Degraded / high risk</div>
+      <div className="legend-item" title="Currently selected unit"><span className="dot" style={{ background: "var(--blue)" }} /> Selected object</div>
     </div>
   );
 }

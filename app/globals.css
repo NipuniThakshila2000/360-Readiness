@@ -37,6 +37,33 @@ button {
   cursor: pointer;
 }
 
+.card,
+.metric,
+.filter,
+.factor,
+.alert,
+.prompt-row button,
+.switch-button,
+.nav-button,
+.map-controls button,
+.map-tool-rail button,
+.data-table tbody tr,
+.marker,
+.facility,
+.legend-item,
+.pill,
+.select,
+.icon-button {
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    color 160ms ease,
+    filter 160ms ease,
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
 .app-shell {
   display: grid;
   grid-template-columns: 82px 1fr;
@@ -101,6 +128,11 @@ button {
   background: rgba(77, 163, 255, 0.09);
 }
 
+.nav-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(77, 163, 255, 0.1);
+}
+
 .workspace {
   min-width: 0;
 }
@@ -162,6 +194,14 @@ button {
   justify-content: center;
 }
 
+.pill:hover,
+.select:hover,
+.icon-button:hover {
+  border-color: rgba(77, 163, 255, 0.36);
+  background: rgba(77, 163, 255, 0.12);
+  color: #f7fbff;
+}
+
 .content {
   padding: 18px;
 }
@@ -186,6 +226,12 @@ button {
   background: rgba(54, 214, 208, 0.1);
 }
 
+.switch-button:hover {
+  color: var(--text);
+  border-color: rgba(54, 214, 208, 0.34);
+  background: rgba(54, 214, 208, 0.08);
+}
+
 .grid {
   display: grid;
   gap: 14px;
@@ -207,6 +253,11 @@ button {
   border-radius: 8px;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
   overflow: hidden;
+}
+
+.card:hover {
+  border-color: rgba(77, 163, 255, 0.3);
+  box-shadow: 0 20px 52px rgba(0, 0, 0, 0.24), 0 0 0 1px rgba(77, 163, 255, 0.07);
 }
 
 .card.pad {
@@ -235,6 +286,10 @@ button {
   padding: 14px;
   display: grid;
   gap: 8px;
+}
+
+.metric:hover {
+  background: rgba(77, 163, 255, 0.045);
 }
 
 .metric-top,
@@ -348,6 +403,12 @@ button {
   font-size: 11px;
 }
 
+.prompt-row button:hover {
+  border-color: rgba(77, 163, 255, 0.55);
+  background: rgba(77, 163, 255, 0.17);
+  color: #f7fbff;
+}
+
 .filters {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -374,6 +435,12 @@ button {
   font-size: 12px;
 }
 
+.filter:hover {
+  border-color: rgba(54, 214, 208, 0.34);
+  background: rgba(54, 214, 208, 0.06);
+  transform: translateY(-1px);
+}
+
 .data-table {
   width: 100%;
   border-collapse: collapse;
@@ -398,6 +465,10 @@ button {
 
 .data-table tr:hover td {
   background: rgba(77, 163, 255, 0.06);
+}
+
+.data-table tbody tr:hover {
+  box-shadow: inset 3px 0 0 rgba(77, 163, 255, 0.72);
 }
 
 .table-wrap {
@@ -595,6 +666,11 @@ button {
   max-width: 84px;
 }
 
+.facility:hover {
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.55));
+  z-index: 7;
+}
+
 .facility span {
   width: 17px;
   height: 17px;
@@ -659,6 +735,10 @@ button {
 .marker.active {
   filter: drop-shadow(0 0 8px rgba(77, 163, 255, 0.8));
   z-index: 6;
+}
+
+.marker:hover {
+  transform: translate(-50%, -50%) scale(1.06);
 }
 
 .marker.unit {
@@ -760,6 +840,12 @@ button {
   opacity: 0.42;
 }
 
+.map-controls button:not(:disabled):hover {
+  border-color: rgba(77, 163, 255, 0.48);
+  background: rgba(77, 163, 255, 0.18);
+  transform: translateY(-1px);
+}
+
 .map-tool-rail {
   top: 12px;
   flex-direction: column;
@@ -786,6 +872,12 @@ button {
   font-weight: 800;
 }
 
+.map-tool-rail button:hover {
+  background: #ffffff;
+  color: #081019;
+  transform: translateX(1px);
+}
+
 .map-legend {
   left: 14px;
   bottom: 14px;
@@ -803,6 +895,10 @@ button {
   gap: 8px;
   color: var(--muted);
   font-size: 11px;
+}
+
+.legend-item:hover {
+  color: var(--text);
 }
 
 .dot {
@@ -856,6 +952,13 @@ button {
   padding: 10px;
   background: rgba(7, 11, 16, 0.42);
   font-size: 12px;
+}
+
+.factor:hover,
+.alert:hover {
+  border-color: rgba(77, 163, 255, 0.32);
+  background: rgba(77, 163, 255, 0.07);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 1180px) {
